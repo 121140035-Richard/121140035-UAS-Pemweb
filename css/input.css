@@ -1,0 +1,180 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+main h1{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card-container{
+    display: flex;
+    margin: 30px 0;
+    justify-content: center;
+}
+
+.card{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: black;
+    color: white
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    height: 30%;
+    border-bottom: solid gold 2px;
+    justify-content: space-evenly;
+}
+
+.card-header img{
+    height: 90%;
+}
+
+.card-header h3{
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.card-body{
+    display: flex;
+    align-items: center;
+    height: 70%;
+    font-size: 0.9rem;
+}
+
+.card-body img{
+    height: 70%;
+    margin: 10px;
+}
+
+.card-detail{
+    margin-right: 10px;
+}
+
+.card-body p{
+    margin: 10px 0;
+}
+
+.card-data span{
+    display: inline-flex;
+    max-width: 205px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    text-transform: capitalize;
+}
+
+form{
+    display: grid;
+    row-gap: 40px;
+    grid-template-areas: 
+    'input1 input2'
+    'input3 input3';
+}
+
+form label{
+    font-size: 1.4rem;
+}
+
+.body-input-1{
+    grid-area: input1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-input-2{
+    grid-area: input2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-input-3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    grid-area: input3;
+}
+
+.input-item{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    width: 80%;
+    min-width: 280px;
+}
+
+.input-item input{
+    width: 320px;
+}
+
+.input-item select{
+    width: 323px;
+}
+
+.submit-btn{
+    padding: 10px;
+    width: 120px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: solid black 2px;
+}
+
+.submit-btn:hover{
+    background-color: pink;
+}
+
+@media only screen and (max-width: 1195px) {
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation{
+        margin-top: 10px;
+    }
+
+    form{
+        grid-template-areas: 
+        'input1'
+        'input2'
+        'input3';
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .card-container{
+        margin: 20px 10px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .input-item input{
+        width: 250px;
+    }
+    
+    .input-item select{
+        width: 253px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    form label{
+        font-size: 1rem;
+    }
+
+    .input-item input{
+        width: 180px;
+    }
+    
+    .input-item select{
+        width: 183px;
+    }
+}
