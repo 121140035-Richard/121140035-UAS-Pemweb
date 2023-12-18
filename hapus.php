@@ -13,8 +13,9 @@ if(!isset($_SESSION["admin"])){
 }
 
 $id_mahasiswa = $_GET["id"];
+$email = $_GET["email"];
 
-$hapus = query_hapus($id_mahasiswa);
+$hapus = query_hapus($id_mahasiswa, $email);
 
 if( $hapus > 0 ){
     echo "

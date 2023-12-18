@@ -46,5 +46,9 @@ class DataMahasiswa{
     function getQuery(){
         return "?id=$this->id";
     }
+
+    function getQueryEmail(){
+        return "&email=$this->email";
+    }
 }
 ?>

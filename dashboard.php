@@ -7,7 +7,7 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-if(!isset($_GET["email"]) || $_GET["email"]!=$_SESSION["user"]){
+if(!isset($_GET["email"])){
     header("Location: logout.php");
     exit;
 }

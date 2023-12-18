@@ -34,7 +34,7 @@ if (isset($_POST["login"])) {
     $isExist = checkEmail($email);
 
     if ($isExist != 0) {
-        $akun = query_output("SELECT * FROM akun WHERE email='$email'");
+        $akun = query_output("SELECT * FROM akun WHERE email LIKE '$email'");
 
         foreach ($akun as $dataAkun) {
             if (
@@ -45,7 +45,7 @@ if (isset($_POST["login"])) {
                 //session verification
                 $_SESSION["login"] = true;
                 $_SESSION["admin"] = true;
-                $_SESSION["user"] = $akun["email"];
+                $_SESSION["user"] = $dataAkun["email"];
 
                 //remember me
                 if (isset($_POST["remember"])) {
@@ -59,14 +59,14 @@ if (isset($_POST["login"])) {
                 password_verify($password, $dataAkun["password"])
             ) {
                 $_SESSION["login"] = true;
-                $_SESSION["user"] = $akun["email"];
+                $_SESSION["user"] = $dataAkun["email"];
 
                 //remember me
                 if (isset($_POST["remember"])) {
                     setcookie('email', $email, time() + 600);
                     setcookie('key', hash('sha256', $password), time() + 600);
                 }
-
+                
                 header("Location: dashboard.php?email='$email'");
             } else {
                 $isFalse = true;
@@ -89,6 +89,7 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
+    <?php echo "email default admin : admin@itera.id, password admin = 123"; ?>
     <div class="container">
         <h1>Login</h1>
         <form method="post">

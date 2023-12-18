@@ -1,9 +1,9 @@
 <?php 
 //koneksi ke database
 $server = "localhost";
-$user = "root";
-$password = "";
-$database = "uas";
+$user = "id21685619_root";
+$password = "Itera123#";
+$database = "id21685619_uas";
 $connection = mysqli_connect($server, $user, $password, $database);
 
 function checkData($id){
@@ -74,13 +74,15 @@ function query_update($data, $id){
     return $info;
 }
 
-function query_hapus($id){
+function query_hapus($id, $email){
     global $connection;
 
     // query hapus row di table
     $query = "DELETE FROM data_mahasiswa WHERE id=$id";
+    $query2 = "DELETE FROM akun WHERE email='$email'";
     
     mysqli_query($connection, $query);
+    mysqli_query($connection, $query2);
 
     // informasi penghapusan data
 
@@ -93,7 +95,6 @@ function getBrowserInfo(){
     $u_agent = $_SERVER['HTTP_USER_AGENT']; 
     $bname = 'Unknown';
 
-    // Next get the name of the user agent yes seperately and for good reason
     if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)) 
     { 
         $bname = 'IE'; 

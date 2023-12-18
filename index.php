@@ -98,7 +98,7 @@ if (isset($_POST["filter"])){
                 <td><?php echo $count; ?></td>
                 <td>
                     <a href="input.php<?= $data->getQuery() ?>">Ubah</a> |
-                    <a href="hapus.php?id=<?= $data->getQuery() ?>" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
+                    <a href="hapus.php<?= $data->getQuery() ?><?= $data->getQueryEmail() ?>" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
                 </td>
                 <td><?php echo $data->getData("nama") ?></td>
                 <td><?php echo $data->getData("nim") ?></td>
